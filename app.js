@@ -32,7 +32,6 @@ var secret = 'kittens';
 // Initialize a new socket.io application
 
 var presentation = io.on('connection', function (socket) {
-
 	// A new client has come online. Check the secret key and 
 	// emit a "granted" or "denied" message.
 
@@ -47,7 +46,6 @@ var presentation = io.on('connection', function (socket) {
 	// Clients send the 'slide-changed' message whenever they navigate to a new slide.
 
 	socket.on('slide-changed', function(data){
-
 		// Check the secret key again
 
 		if(data.key === secret) {

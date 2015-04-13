@@ -17,26 +17,29 @@ $(function() {
 	var secretTextBox = form.find('input[type=text]');
 	// var presentation = $('.reveal');
 
-	var key = "", animationTimeout;
+  // hardcoding the secret key
+	var key = "kittens", animationTimeout;
+  socket.emit('load', { key: 'kittens' });
 
 	// When the page is loaded it asks you for a key and sends it to the server
 
-	form.submit(function(e){
+  // commenting the form event handling
+	// form.submit(function(e){
 
-		e.preventDefault();
+	// 	e.preventDefault();
 
-		key = secretTextBox.val().trim();
+	// 	key = secretTextBox.val().trim();
 
-		// If there is a key, send it to the server-side
-		// through the socket.io channel with a 'load' event.
+	// 	// If there is a key, send it to the server-side
+	// 	// through the socket.io channel with a 'load' event.
 
-		if(key.length) {
-			socket.emit('load', {
-				key: key
-			});
-		}
+	// 	if(key.length) {
+	// 		socket.emit('load', {
+	// 			key: key
+	// 		});
+	// 	}
 
-	});
+	// });
 
 	// The server will either grant or deny access, depending on the secret key
 
